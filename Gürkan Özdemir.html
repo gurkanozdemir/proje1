@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <style>
+        h2 {
+            color: #fff;
+            font-size: 150%;
+            font-weight: bold;
+            font-family: Helvetica;
+            text-shadow:
+                0 1px 0 #ccc,
+                0 2px 0 #c9c9c9,
+                0 3px 0 #bbb,
+                0 4px 0 #b9b9b9,
+                0 5px 0 #aaa,
+                0 6px 1px rgba(0, 0, 0, .1),
+                0 0 5px rgba(0, 0, 0, .1),
+                0 1px 3px rgba(0, 0, 0, .3),
+                0 3px 5px rgba(0, 0, 0, .2),
+                0 5px 10px rgba(0, 0, 0, .25),
+                0 10px 10px rgba(0, 0, 0, .2),
+                0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+    <script>
+
+
+        var value;
+        var isİncludeNumber;
+        while (true) {
+            isİncludeNumber = false;
+
+            value = prompt("Uygun bir değer giriniz: ");
+
+            if (value.length > 9 || value.length <= 1) {
+                alert("aralık dışı deger girildi");
+            }
+            else if (Number.isSafeInteger(parseInt(value)) == true) {
+                alert("Lütfen sayı girmeyiniz");
+            }
+            else {
+                for (var i = 0; i < value.length; i++) {
+                    if (value[i] / 1 == value[i]) {
+                        isİncludeNumber = true;
+                        break;
+
+                    }
+
+                }
+
+                if (isİncludeNumber == true) {
+                    alert("lütfen sayı içeren veri girmeyiniz");
+                    continue;
+                }
+                else {
+                    alert("uygun deger girildi");
+                    break;
+
+                }
+
+            }
+
+        }
+        var newVal = "";
+        document.write("<center> girdi: <h2>" + value + "</h2> <br> </center>");
+        for (var i = 1; i <= value.length; i++) {
+
+            newVal = "";
+
+            for (var j = 0; j < i; j++) {
+                var comb = Math.floor(Math.random() * value.length);
+                newVal += value[comb];
+            }
+
+
+            document.write("<center> <h2> kombinasyon" + i + ":" + newVal + "<br> </h2> </center>");
+        }
+
+
+
+    </script>
+</body>
+
+</html>
